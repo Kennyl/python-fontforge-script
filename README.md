@@ -2,7 +2,7 @@
 
 Python Script for Font Manipulation using FontForge Module
 
-# Please install python-fontforge module first as well as PyQt5
+**Please install python-fontforge module first as well as PyQt5**
 
 # [minizeFont.py](../../blob/master/minizeFont.py)
 
