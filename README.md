@@ -3,7 +3,7 @@
 Python Script for Font Manipulation using FontForge Module
 
 # Please install python-fontforge module first
-https://github.com/Kennyl/python-fontforge-script/blob/master/README.md
+
 # [minizeFont.py](https://github.com/Kennyl/python-fontforge-script/blob/master/minizeFont.py)
 
 Python script that minimize ttf font by input word list
@@ -32,3 +32,10 @@ C D
 # [checkMissingGlyph.py](https://github.com/Kennyl/python-fontforge-script/blob/master/checkMissingGlyph.py)
 
 Check Missing Glyph in word list [missingGlyph](https://github.com/Kennyl/python-fontforge-script/blob/master/missingGlyph) 
+
+Word list format
+```
+A
+B
+C
+```
