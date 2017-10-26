@@ -86,7 +86,7 @@ class askSetting(QDialog):
 
 
 inFilePrompt = "File to read"
-defaultInFile = "missingGlyph"
+defaultInFile = "missingGlyphs"
 
 items = collections.OrderedDict()
 items[inFilePrompt] = defaultInFile

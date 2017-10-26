@@ -87,7 +87,7 @@ class askSetting(QDialog):
 
 
 inFilePrompt = "File to read"
-defaultInFile = "minifyTC"
+defaultInFile = "minifyGlyphs"
 
 outFilePrompt = "Minimize TTF File to write"
 defaultOutFile = "out.ttf"
