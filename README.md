@@ -4,7 +4,7 @@ Python Script for Font Manipulation using FontForge Module
 
 **Please install python-fontforge module first as well as PyQt5**
 
-# [minizeFont.py](../../blob/master/minizeFont.py)
+# [minimizeFont.py](../../blob/master/minimizeFont.py)
 
 Python script that minimize ttf font by input word list
 
