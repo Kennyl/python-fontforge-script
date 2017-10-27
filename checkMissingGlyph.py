@@ -6,16 +6,15 @@ import sys
 import collections
 import fontforge
 
-#ignore warning
+# ignore warning
 # import warnings
 # warnings.filterwarnings("ignore")
 
-# can use 3  or 2
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import (QFileDialog, QDialog, QPushButton,
                              QLineEdit, QLabel, QCheckBox,
                              QApplication, QVBoxLayout)
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIntValidator
 
 
 class askSetting(QDialog):
@@ -95,7 +94,7 @@ app = QApplication(sys.argv)
 ask = askSetting(app=app, items=items)
 ask.show()
 rtnCode = app.exec_()
-#If press OK button  rtnCode should be 1
+# If press OK button  rtnCode should be 1
 if rtnCode != 1:
     print('User abort by closing Setting dialog')
     sys.exit
@@ -106,10 +105,10 @@ ttfFile = fontforge.open(items['getOpenFileName'])
 f = open(items[inFilePrompt], 'r', encoding="utf-8")
 
 ttfFile.selection.none()
-## file contents
-#問
-#问
-## ie. \w
+# file contents
+# 問
+# 问
+# ie. \w
 ## ie. word
 
 count = 0

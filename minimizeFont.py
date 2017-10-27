@@ -7,16 +7,15 @@ import os
 import collections
 import fontforge
 
-#ignore warning
+# ignore warning
 # import warnings
 # warnings.filterwarnings("ignore")
 
-# can use 3  or 2
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import (QFileDialog, QDialog, QPushButton,
                              QLineEdit, QLabel, QCheckBox,
                              QApplication, QVBoxLayout)
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QIntValidator
 
 useUnichr = True
 if not useUnichr:
@@ -110,7 +109,7 @@ app = QApplication(sys.argv)
 ask = askSetting(app=app, items=items)
 ask.show()
 rtnCode = app.exec_()
-#If press OK button  rtnCode should be 1
+# If press OK button  rtnCode should be 1
 if rtnCode != 1:
     print('User abort by closing Setting dialog')
     sys.exit
@@ -121,11 +120,19 @@ ttfFile = fontforge.open(items['getOpenFileName'])
 f = open(items[inFilePrompt], 'r', encoding="utf-8")
 
 ttfFile.selection.none()
-## file contents
-#問
-#问
-## ie. \w
+# file contents
+# 問
+# 问
+# ie. \w
 ## ie. word
+
+# Pseudo Old FontForge Script
+# SelectNone()
+# SelectMore(...)
+# SelectInvert()
+# Clear()
+# Generate()
+###
 count = 0
 for line in f:
     words = line.encode("raw_unicode_escape").split()
@@ -138,12 +145,6 @@ for line in f:
             sys.stdout.write("\n")
         sys.stdout.flush()
         if words[0].startswith(b'\u'):
-###
-# SelectNone()
-# SelectMore(...)
-# SelectInvert()
-# Clear()
-###
             # print(words[0].decode('unicode_escape'))
             ttfFile.selection.select(("more", None), words[0][1:])
         elif len(words[0]) == 1:
