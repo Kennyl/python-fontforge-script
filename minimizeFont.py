@@ -18,6 +18,10 @@ from PyQt5.QtWidgets import (QFileDialog, QDialog, QPushButton,
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIntValidator
 
+useUnichr = True
+if not useUnichr:
+    unichr = str
+
 
 class askSetting(QDialog):
 
@@ -165,7 +169,7 @@ if items[generateGlyphAsEPS]:
     count = 0
     print(u'\nGenerating EPS')
     for glyph in ttfFile.selection.byGlyphs:
-        glyph.export("out/eps/"+str(glyph.unicode)+".eps")
+        glyph.export("out/eps/"+unichr(glyph.unicode)+".eps")
         sys.stdout.write('.')
         sys.stdout.flush()
         count += 1
@@ -186,7 +190,7 @@ if items[generateGlyphAsPNG]:
     print(u'\nGenerating PNG @ '+pngSize)
     for glyph in ttfFile.selection.byGlyphs:
         glyph.export("out/png/"
-                     + str(glyph.unicode)
+                     + unichr(glyph.unicode)
                      + "."
                      + pngSize
                      + ".png",
