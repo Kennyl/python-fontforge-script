@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from io import open
-import sys
 import collections
 import fontforge
+from io import open
+import sys
 
 # ignore warning
 # import warnings
