@@ -105,15 +105,19 @@ ttfFile = fontforge.open(items['getOpenFileName'])
 f = open(items[inFilePrompt], 'r', encoding="utf-8")
 
 ttfFile.selection.none()
+###
 # file contents
+# ## start with "##" line will be ignore to read
 # 問
 # 问
 # ie. \w
-## ie. word
-
+# ie. word
+###
 count = 0
 
 for line in f:
+    if line.startsWith("##"):
+        continue
     words = line.encode("raw_unicode_escape").split()
     if len(words) == 1:
         if words[0].startswith(b'\u'):

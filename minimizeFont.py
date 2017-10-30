@@ -92,15 +92,15 @@ class askSetting(QDialog):
 inFilePrompt = "File to read"
 defaultInFile = "minifyGlyphs"
 
-outFilePrompt = "Minimize TTF File to write"
-defaultOutFile = "out.ttf"
+# outFilePrompt = "Minimize TTF File to write"
+# defaultOutFile = "out.ttf"
 generateGlyphAsEPS = "Generate Glyph As EPS"
 generateGlyphAsPNG = "Generate Glyph As PNG"
 defaultPNGSize = "PNG Pixel Size"
 
 items = collections.OrderedDict()
 items[inFilePrompt] = defaultInFile
-items[outFilePrompt] = defaultOutFile
+# items[outFilePrompt] = defaultOutFile
 items[generateGlyphAsEPS] = True
 items[generateGlyphAsPNG] = True
 items[defaultPNGSize] = 48
@@ -120,12 +120,14 @@ ttfFile = fontforge.open(items['getOpenFileName'])
 f = open(items[inFilePrompt], 'r', encoding="utf-8")
 
 ttfFile.selection.none()
+###
 # file contents
+# ## start with "##" line will be ignore to read
 # 問
 # 问
 # ie. \w
-## ie. word
-
+# ie. word
+###
 # Pseudo Old FontForge Script
 # SelectNone()
 # SelectMore(...)
@@ -135,6 +137,8 @@ ttfFile.selection.none()
 ###
 count = 0
 for line in f:
+    if line.startswith("##"):
+        continue
     words = line.encode("raw_unicode_escape").split()
     # words = line.split()
     # print(len(words))
@@ -154,11 +158,12 @@ for line in f:
 ttfFile.selection.invert()
 ttfFile.clear()
 ttfFile.fontname = ttfFile.fontname + "-SKIM"
+ttfFile.familyname = ttfFile.familyname + "-SKIM"
 if not os.path.exists("out"):
     os.makedirs("out")
 
-ttfFile.generate("out/"+defaultOutFile)
-print(u'\nGenerated '+ttfFile.fontname+u" as out/"+defaultOutFile+u"\n")
+ttfFile.generate("out/"+ttfFile.fontname+u".ttf")
+print(u'\nGenerated '+ttfFile.fontname+u" as out/"+ttfFile.fontname+u".ttf \n")
 
 ttfFile.selection.invert()
 
@@ -208,4 +213,5 @@ if items[generateGlyphAsPNG]:
           + ".png")
 
 if items[generateGlyphAsEPS] or items[generateGlyphAsPNG]:
-    print(u'\nGenerated '+ttfFile.fontname+u" as out/"+defaultOutFile+u"\n")
+    print(u'\nGenerated '+ttfFile.fontname +
+          u" as out/"+ttfFile.fontname+u".ttf \n")

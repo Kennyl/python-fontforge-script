@@ -12,6 +12,7 @@ Use [minifyGlyphs](../../blob/master/minifyGlyphs) as input word list
 
 Word list format
 ```
+## start with "##" line will be ignore to read
 A
 B
 C
@@ -25,6 +26,7 @@ Use [copyReferenceAtoB](../../blob/master/copyReferenceAtoB) as input word list
 
 Word list format (Copy glyph 'A' to glyph 'B', copy glyph 'C' to glyph 'D')
 ```
+## start with "##" line will be ignore to read
 A B
 C D
 ```
@@ -35,6 +37,7 @@ Check Missing Glyph in word list [missingGlyphs](../../blob/master/missingGlyphs
 
 Word list format
 ```
+## start with "##" line will be ignore to read
 A
 B
 C
