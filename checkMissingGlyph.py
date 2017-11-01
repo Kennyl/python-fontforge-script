@@ -116,7 +116,7 @@ ttfFile.selection.none()
 count = 0
 
 for line in f:
-    if line.startsWith("##"):
+    if line.startswith("##"):
         continue
     words = line.encode("raw_unicode_escape").split()
     if len(words) == 1:
