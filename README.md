@@ -6,11 +6,10 @@ Python Script for Font Manipulation using FontForge Module
 
 **Please install python-fontforge module first as well as PyQt5**
 
-# [minimizeFont.py](../../blob/master/minimizeFont.py)
 
-Python script that minimize ttf font by input word list
+# [checkMissingGlyph.py](../../blob/master/checkMissingGlyph.py)
 
-Use [minifyGlyphs](../../blob/master/minifyGlyphs) as input word list
+Check Missing Glyph in word list [missingGlyphs](../../blob/master/missingGlyphs) 
 
 Word list format
 ```
@@ -33,9 +32,20 @@ A B
 C D
 ```
 
-# [checkMissingGlyph.py](../../blob/master/checkMissingGlyph.py)
+# [getChineseFontName.py](../../blob/master/getChineseFontName.py)
 
-Check Missing Glyph in word list [missingGlyphs](../../blob/master/missingGlyphs) 
+Get all TTFs' Chinese Font Name in current folder.
+
+Print out sample.
+```
+?.ttf as {chinese_name}_{english_name}
+```
+
+# [minimizeFont.py](../../blob/master/minimizeFont.py)
+
+Python script that minimize ttf font by input word list
+
+Use [minifyGlyphs](../../blob/master/minifyGlyphs) as input word list
 
 Word list format
 ```
