@@ -2,6 +2,8 @@
 
 Python Script for Font Manipulation using FontForge Module
 
+[![Build Status](https://travis-ci.org/Kennyl/python-fontforge-script.svg?branch=master)](https://travis-ci.org/Kennyl/python-fontforge-script)
+
 **Please install python-fontforge module first as well as PyQt5**
 
 # [minimizeFont.py](../../blob/master/minimizeFont.py)
