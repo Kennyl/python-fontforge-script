@@ -7,17 +7,20 @@ fonts = glob.glob("*.ttf")
 
 for f in fonts:
     ttfFile = fontforge.open(f, 5)
-    chinesename = ""
+    chineseName = ""
+    englishName = ttfFile.fullname.replace(' ', '_')
     for item in ttfFile.sfnt_names:
         (a, b, c) = item
+        if a == 'English (US)' and b == 'Fullname':
+            englishName = c.replace(' ', '_')
         if a == 'Chinese (PRC)' and b == 'Fullname':
-            chinesename = c
+            chineseName = c
         if a == 'Chinese (Taiwan)' and b == 'Fullname':
-            chinesename = c
+            chineseName = c
         if a == 'Chinese (Hong Kong)' and b == 'Fullname':
-            chinesename = c
+            chineseName = c
 
     # print("cp  shortname/" + f + "  " + c+'_' +
     #       (ttfFile.fullname).replace(' ', '') + ".ttf")
-    print(f.replace(' ', '\\ ') + " as " + chinesename +
-          "_" + ttfFile.fullname.replace(' ', '_'))
+    print(f.replace(' ', '\\ ') + " as " + chineseName +
+          "_" + englishName)
