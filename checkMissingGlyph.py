@@ -137,6 +137,8 @@ for line in f:
                 if count % 20 == 0:
                     sys.stdout.write("\n ")
                 sys.stdout.flush()
+            else:
+                count -= 1
 
 if count > 0:
     print("\n-１-２-３-４-５-６-７-８-９-⓵ -１-２-３-４-５-６-７-８-９-⓶ -")
